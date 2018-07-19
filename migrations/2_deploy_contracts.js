@@ -104,7 +104,7 @@ module.exports = function(deployer) {
 						let T = Token.at(Token.address);
 						return Promise.all([T.name(), T.symbol(), T.decimals()]);
 					}).then((data) => {
-						D[data[1]] = {name: data[0], decimal: data[2], addr: Token.address};
+						D[data[1]] = {name: data[0], decimals: data[2], addr: Token.address};
 						return D;
 					});
 				})
