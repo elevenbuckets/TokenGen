@@ -85,8 +85,9 @@ module.exports = function(deployer) {
 			TradeTokenJ, 
 			TradeTokenK, 
 			TradeTokenL, 
-			TradeTokenM, 
+			TradeTokenM,
 			TradeTokenN, 
+	       		TradeTokenO,	
 			TradeTokenP, 
 			TradeTokenQ, 
 			TradeTokenR, 
@@ -100,11 +101,12 @@ module.exports = function(deployer) {
 	
 			TokenList.forEach((Token) => {
 				stage = stage.then((D) => {
-					return deployer.deploy(Token).then(() => {
+					return deployer.deploy(Token)
+					.then(() => { 
 						let T = Token.at(Token.address);
-						return Promise.all([T.name(), T.symbol(), T.decimals()]);
+						return Promise.all([T.name(), T.symbol(), T.decimals(), Promise.resolve(T)]);
 					}).then((data) => {
-						D[data[1]] = {name: data[0], decimals: data[2], addr: Token.address};
+						D[data[1]] = {name: data[0], decimals: data[2], addr: data[3].address};
 						return D;
 					});
 				})
