@@ -106,13 +106,18 @@ module.exports = function(deployer) {
 						let T = Token.at(Token.address);
 						return Promise.all([T.name(), T.symbol(), T.decimals(), Promise.resolve(T)]);
 					}).then((data) => {
-						D[data[1]] = {name: data[0], decimals: data[2], addr: data[3].address};
+						D[data[1]] = {name: data[0], decimals: parseInt(data[2]), addr: data[3].address};
 						return D;
 					});
 				})
 			});
 	
 			stage = stage.then((D) => {
+				D.ETH = {
+				  addr: "0x0000000000000000000000000000000000000000",
+			          name: "ETH",
+			          decimals: parseInt(18)
+				};
 				return JSON.stringify(D,0,2);
 			});
 	
