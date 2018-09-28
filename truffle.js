@@ -1,5 +1,5 @@
 module.exports = {
-  solc: "/home/jasonlin/bin/solc",
+  solc: "/home/liang/bin/solc",
   networks: {
     development: {
       host: "localhost",

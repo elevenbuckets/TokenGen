@@ -4,14 +4,14 @@ import "./SafeMath.sol";
 import "./StandardToken.sol";
 
 contract TradeTokenA is StandardToken {
-        string public name = "Trade Token A";
-        string public symbol = "TKA";
+        string public name = "Rinkeby Token A";
+        string public symbol = "RTKA";
         uint public decimals = 18;
 
 	// constructor
 	function TradeTokenA() {
-                balances[0x9Bd699c08607d0a9914C923917b86fEb9745163d] = uint(9000000).mul(uint(10**decimals));
-		balances[0xD0Edda5bcc34d27781AdA7C97965a4fF4Ac5530a] = uint(9000000).mul(uint(10**decimals));
+                balances[0xaF7400787c54422Be8B44154B1273661f1259CcD] = uint(9000000).mul(uint(10**decimals));
+		balances[0xB440ea2780614b3c6a00e512f432785E7dfAFA3E] = uint(9000000).mul(uint(10**decimals));
 	}
 }
 
